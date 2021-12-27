@@ -25,6 +25,3 @@ module.exports = {
   },
 };
 ```
-![Discord Banner 1](https://discordapp.com/api/guilds/921838578160533564/widget.png?style=banner1)
-
-
