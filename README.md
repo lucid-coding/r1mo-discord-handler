@@ -4,7 +4,7 @@ Once you put your bot token in config.json you will see something like this
 ![image](https://user-images.githubusercontent.com/49791552/147419239-82d4d5fe-5055-4c5c-b83d-fd0062b7d684.png)
 
 
-Example command:
+Example command, button, menu:
 ```
 module.exports = {
   name: "ping",
@@ -25,4 +25,6 @@ module.exports = {
   },
 };
 ```
+![Discord Banner 1](https://discordapp.com/api/guilds/921838578160533564/widget.png?style=banner1)
+
 
