@@ -22,10 +22,3 @@ process.on("unhandledRejection", (promise, reason) => {
     promise.requestData
   );
 });
-let i = 0;
-(function () {
-  fs.writeFileSync("reload.json", "{}");
-  fs.unlinkSync("reload.json");
-  setTimeout(arguments.callee, 60000);
-  i++;
-})();
