@@ -20,8 +20,8 @@ module.exports = {
   ],
   permission: "ADMINISTRATOR", // required permission to run the command
   invisible: true, // ephemeral
-  async execute(interaction, client, Discord, r1mo) {
-   interaction.followUp("Pong");
+  async execute(interaction, client, Discord, l) {
+   interaction.followUp(l.ping.reply); || l is the selected language you edit the langs from /langs
   },
 };
 ```
