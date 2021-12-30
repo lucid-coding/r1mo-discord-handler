@@ -1,75 +1,18 @@
-const _0x3e14a2 = _0x3fb9;
-function _0x3fb9(_0x2270cd, _0x1e7703) {
-  const _0x35d264 = _0x35d2();
-  return (
-    (_0x3fb9 = function (_0x3fb9e3, _0x983142) {
-      _0x3fb9e3 = _0x3fb9e3 - 0x1ea;
-      let _0x42ecc9 = _0x35d264[_0x3fb9e3];
-      return _0x42ecc9;
-    }),
-    _0x3fb9(_0x2270cd, _0x1e7703)
-  );
-}
-function _0x35d2() {
-  const _0x22722e = [
-    "filter",
-    "2485052ZZQuyG",
-    "category",
-    "exports",
-    "86312BETGwb",
-    "2212062AryMQS",
-    "385637pWaWNF",
-    "../menus/",
-    "readdirSync",
-    "772935qgoXYD",
-    "1809174qkfGbg",
-    "5yfvDyg",
-    "27AMRzgP",
-    "./src/menus/",
-    "endsWith",
-    "897792vMwlrp",
-    "name",
-    ".js",
-  ];
-  _0x35d2 = function () {
-    return _0x22722e;
-  };
-  return _0x35d2();
-}
-(function (_0x55e269, _0x5c9ebc) {
-  const _0x837c1d = _0x3fb9,
-    _0x3609e9 = _0x55e269();
-  while (!![]) {
-    try {
-      const _0x5d0c80 =
-        -parseInt(_0x837c1d(0x1f2)) / 0x1 +
-        -parseInt(_0x837c1d(0x1ed)) / 0x2 +
-        parseInt(_0x837c1d(0x1ee)) / 0x3 +
-        parseInt(_0x837c1d(0x1ea)) / 0x4 +
-        (parseInt(_0x837c1d(0x1f4)) / 0x5) *
-          (-parseInt(_0x837c1d(0x1f3)) / 0x6) +
-        parseInt(_0x837c1d(0x1ef)) / 0x7 +
-        (parseInt(_0x837c1d(0x1f8)) / 0x8) * (parseInt(_0x837c1d(0x1f5)) / 0x9);
-      if (_0x5d0c80 === _0x5c9ebc) break;
-      else _0x3609e9["push"](_0x3609e9["shift"]());
-    } catch (_0x348186) {
-      _0x3609e9["push"](_0x3609e9["shift"]());
-    }
-  }
-})(_0x35d2, 0x9a7b8);
 const fs = require("fs");
-module[_0x3e14a2(0x1ec)] = (_0x34efed, _0x5a6d90) => {
-  const _0x2fcf4c = _0x3e14a2,
-    _0x9daa8e = fs[_0x2fcf4c(0x1f1)](_0x2fcf4c(0x1f6));
-  for (const _0x50d258 of _0x9daa8e) {
-    const _0x519fe6 = fs[_0x2fcf4c(0x1f1)](_0x2fcf4c(0x1f6) + _0x50d258)[
-      _0x2fcf4c(0x1fb)
-    ]((_0x436985) => _0x436985[_0x2fcf4c(0x1f7)](_0x2fcf4c(0x1fa)));
-    for (const _0x2969d7 of _0x519fe6) {
-      const _0x2e6df8 = require(_0x2fcf4c(0x1f0) + _0x50d258 + "/" + _0x2969d7);
-      (_0x2e6df8[_0x2fcf4c(0x1eb)] = _0x50d258),
-        !_0x2e6df8["name"] && (_0x2e6df8["name"] = _0x50d258),
-        _0x34efed["menus"]["set"](_0x2e6df8[_0x2fcf4c(0x1f9)], _0x2e6df8);
+
+module.exports = (client, Discord) => {
+  const menusFolders = fs.readdirSync("./src/menus/");
+  for (const folder of menusFolders) {
+    const menuFiles = fs
+      .readdirSync(`./src/menus/${folder}`)
+      .filter((file) => file.endsWith(".js"));
+    for (const file of menuFiles) {
+      const menu = require(`../menus/${folder}/` + file);
+      menu.category = folder;
+      if (!menu.name) {
+        menu.name = folder;
+      }
+      client.menus.set(menu.name, menu);
     }
   }
 };

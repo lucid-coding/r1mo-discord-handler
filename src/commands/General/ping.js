@@ -12,18 +12,18 @@ module.exports = {
   ],
   permission: "ADMINISTRATOR", // required permission to run the command
   invisible: true, // ephemeral
-  async execute(interaction, client, Discord, r1mo) {
+  async execute(interaction, client, Discord, l) {
     const api = `${Date.now() - interaction.createdTimestamp}`;
 
     const response = new Discord.MessageEmbed()
-      .setAuthor(
-        client.user.username,
-        client.user.displayAvatarURL({ dynamic: true })
-      )
-      .setColor(r1mo.Color)
+        .setAuthor(
+            client.user.username,
+            client.user.displayAvatarURL({ dynamic: true })
+        )
+        .setColor("BLUE")
 
-      .setTitle("Pong! 🏓")
-      .setDescription(`${api}ms`);
+        .setTitle(l.ping.embed_title)
+        .setDescription(`${api}ms`);
     await interaction.followUp({ embeds: [response] });
   },
 };
