@@ -15,7 +15,7 @@ module.exports = {
         );
       if (interaction.commandName === "setlang")
         return command.execute(interaction, client, Discord);
-      d;
+      
       const l = require(`../../langs/${lang}.json`);
       if (command.invisible) {
         await interaction.deferReply({ ephemeral: true }).catch(() => {});
